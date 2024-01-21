@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 
 function Header() {
@@ -30,32 +29,32 @@ function Header() {
             {/*Inicio do menu*/}
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
+                <a class="nav-link active" aria-current="page" href={"/"}>
                   Home
                 </a>
               </li>
               <li class=" nav-item">
-                <a class="nav-link" href="Talentos.html">
-                  Banco de Talentos
+                <a class="nav-link" href="/talentos">
+                  Talentos
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Cursos.html">
+                <a class="nav-link" href="/cursos">
                   Cursos
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Biblioteca.html">
+                <a class="nav-link" href="/biblioteca">
                   Biblioteca
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Contato.html">
+                <a class="nav-link" href="/contato">
                   Contato
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Parceiros.html">
+                <a class="nav-link" href="/parceiros">
                   Parceiros
                 </a>
               </li>

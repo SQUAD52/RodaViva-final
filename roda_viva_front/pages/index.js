@@ -12,7 +12,6 @@ export default function Home() {
         <title>Roda Viva</title>
         <meta name="description" content="Projeto Roda Viva" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/img/logoRodaViva.png" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <section className="container mb-5" style={{ marginTop: 90 }}>

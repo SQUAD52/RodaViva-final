@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
+      <link rel="icon" href="/img/logoRodaViva.png" />
       <body>
         <Main />
         <NextScript />
