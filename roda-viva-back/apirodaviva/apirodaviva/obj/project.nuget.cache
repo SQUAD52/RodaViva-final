@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gzAWCL7XFrQJj++a7DZM4o6gZ2viYcJGCWb9yfk5nwR2TFUZHVPxxQkS1wTXsJprmrKUYdobQSprzxw+zU5UVw==",
+  "dgSpecHash": "uMfmINYciMppwNIFpPof8+wdETL3VF+1LemxnqBh++vTkBz/Zapf0qX7VxjBzXGKgt9L38T4Zgvg95hm1j6m5g==",
   "success": true,
   "projectFilePath": "C:\\Users\\sgvit\\OneDrive\\Documentos\\projetos-ativos\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj",
   "expectedPackageFiles": [
@@ -234,11 +234,7 @@
     "C:\\Users\\sgvit\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\sgvit\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\sgvit\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\sgvit\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\sgvit\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\sgvit\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\sgvit\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\sgvit\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.26\\microsoft.netcore.app.host.win-x64.6.0.26.nupkg.sha512"
+    "C:\\Users\\sgvit\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
