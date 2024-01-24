@@ -41,7 +41,7 @@ function Header() {
                                 </a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="/talentos">
+                                <a class="nav-link" href="/talento">
                                     Talentos
                                 </a>
                             </li>
@@ -78,7 +78,7 @@ function Header() {
                                     Login
                                 </button>
                             </a>
-                            <a href="Cadastro.html">
+                            <a href="/talento/create-talento">
                                 <button
                                     type="button"
                                     class="btn btn-sm btn-light border-black"
@@ -86,7 +86,7 @@ function Header() {
                                     Cadastre-se como talento
                                 </button>
                             </a>
-                            <a href="/talentos">
+                            <a href="/talento">
                                 <button
                                     type="button"
                                     class="btn btn-sm btn-warning my-2"
