@@ -14,7 +14,7 @@ function talentos() {
                 console.error("Erro ao buscar lista de cadastros", error);
             });
     }, []);
-    console.log(talentos);
+
     return (
         <main className="container-fluid " style={{ paddingTop: 100 }}>
             <div className="row">
