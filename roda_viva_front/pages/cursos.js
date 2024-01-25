@@ -192,7 +192,7 @@ export default function cursos() {
                             </div>
                         </a>
                     </div>
-                    <div className="col">
+                    <div className="col" style={{ paddingBottom: "100px" }}>
                         <a
                             className="text-dark"
                             href="https://recode.org.br/programacao/"

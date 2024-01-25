@@ -6,7 +6,7 @@ export default function Document() {
             <Head>
                 <link rel="icon" href="/img/logoRodaViva.png" />
             </Head>
-            <body>
+            <body className="container-wrapper">
                 <Main />
                 <NextScript />
             </body>

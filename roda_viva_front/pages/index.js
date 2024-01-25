@@ -13,7 +13,7 @@ export default function Home() {
                 />
             </Head>
             <main>
-                <section className="container mb-5" style={{ paddingTop: 90 }}>
+                <section className="container mb-5" style={{ paddingTop: 100 }}>
                     <div className="container">
                         <h1
                             className="fs-1 fw-bold"
@@ -502,7 +502,10 @@ export default function Home() {
                     </div>
                 </section>
                 <section className="container-fluid bg-info-subtle py-4">
-                    <div className="container text-center">
+                    <div
+                        className="container text-center"
+                        style={{ paddingBottom: "100px" }}
+                    >
                         <div className="row">
                             <div className="col">
                                 <p className="fw-bold">Áreas</p>

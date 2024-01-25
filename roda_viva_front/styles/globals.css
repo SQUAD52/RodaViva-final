@@ -1,28 +1,35 @@
 /*CSS personalizado do footer*/
-
+.container-wrapper {
+    position: relative;
+    min-height: 100vh;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+}
 .socials-paragraph {
-  color: #ffffff;
-  font-size: 14px;
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 0.5rem 0;
-  gap: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0.5rem 0;
+    gap: 25px;
 }
 
 .socials a {
-  text-decoration: none;
-  color: #ffffff;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .socials a i {
-  font-size: 1.6rem;
-  transition: color 0.4s ease;
+    font-size: 1.6rem;
+    transition: color 0.4s ease;
 }
 
 .socials a:hover i {
-  color: aqua;
+    color: aqua;
 }
