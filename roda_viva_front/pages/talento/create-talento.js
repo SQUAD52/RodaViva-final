@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 export default function createTalento() {
     const [newTalento, setNewTalento] = useState({
-        idTalento: 2,
+        idTalento: 0,
         nome: "",
         cpf: "",
         dataNasc: "",
@@ -19,10 +19,6 @@ export default function createTalento() {
     });
 
     const router = useRouter();
-    const headers = {
-        "Content-Type": "application/json",
-        Origin: "http://localhost:3000", // Substitua pelo seu domínio
-    };
     const handleInputChange = (e) => {
         setNewTalento({ ...newTalento, [e.target.name]: e.target.value });
     };
@@ -30,9 +26,7 @@ export default function createTalento() {
     const handleCreateNewTalento = (e) => {
         e.preventDefault();
         axios
-            .post("https://localhost:7226/api/talentos", newTalento, {
-                headers,
-            })
+            .post("https://localhost:7226/api/talentos", newTalento)
             .then(() => {
                 router.push("/talento");
             })
