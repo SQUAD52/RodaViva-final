@@ -432,7 +432,10 @@ export default function biblioteca() {
                         </div>
                     </div>
                 </div>
-                <nav aria-label="Page navigation example">
+                <nav
+                    aria-label="Page navigation example"
+                    style={{ paddingBottom: "100px" }}
+                >
                     <ul className="pagination justify-content-end mt-4">
                         <li className="page-item">
                             <a
