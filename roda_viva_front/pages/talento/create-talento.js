@@ -4,9 +4,28 @@ import { Router, useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export default function createTalento() {
-    const [newTalento, setNewTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", cidade: "", estado: "" });
-
+    const [newTalento, setNewTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", casa:"", bairro:"", cidade: "", estado: "" });
     const router = useRouter();
+    const [cep, setCep] = useState({});
+
+    useEffect(() => {
+        axios
+        .get('http://viacep.com.br/ws/'+newTalento.cep+'/json/')
+        .then((response) => {
+            setCep(response.data);
+            setNewTalento(prevState => ({
+                ...prevState,
+                endereco: response.data.logradouro,
+                bairro: response.data.bairro,
+                cidade: response.data.localidade,
+                estado: response.data.uf
+            }));
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar detalhes do cep", error)
+        })
+    }, [newTalento.cep])
+
     const handleInputChange = (e) => {
         setNewTalento({ ...newTalento, [e.target.name]: e.target.value });
     };
@@ -39,7 +58,7 @@ export default function createTalento() {
                                 name="nome"
                                 value={newTalento.nome}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -54,7 +73,7 @@ export default function createTalento() {
                                 value={newTalento.cpf}
                                 className="form-control"
                                 maxLength={11}
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -71,7 +90,7 @@ export default function createTalento() {
                                 name="dataNasc"
                                 value={newTalento.dataNasc}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -85,7 +104,7 @@ export default function createTalento() {
                                 name="email"
                                 value={newTalento.email}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -99,7 +118,7 @@ export default function createTalento() {
                                 name="formacao"
                                 value={newTalento.formacao}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -114,7 +133,7 @@ export default function createTalento() {
                                 value={newTalento.telefone}
                                 className="form-control"
                                 maxLength={11}
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -132,10 +151,11 @@ export default function createTalento() {
                                 value={newTalento.cep}
                                 className="form-control"
                                 maxLength={9}
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
+
                         <div className="form-group my-3">
                             <label htmlFor="iEndereco" className="form-label">
                                 Endereço:
@@ -146,10 +166,55 @@ export default function createTalento() {
                                 name="endereco"
                                 value={newTalento.endereco}
                                 className="form-control"
+                                required
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group my-3">
+                            <label htmlFor="iCasa" className="form-label">
+                                Casa:
+                            </label>
+                            <input
+                                type="text"
+                                id="iCasa"
+                                name="casa"
+                                value={newTalento.casa}
+                                className="form-control"
+                                required
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group my-3">
+                            <label htmlFor="iBairro" className="form-label">
+                                Bairro:
+                            </label>
+                            <input
+                                type="text"
+                                id="iBairro"
+                                name="bairro"
+                                value={newTalento.bairro}
+                                className="form-control"
+                                required
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        
+                        <div className="form-group my-3">
+                            <label htmlFor="iCidade" className="form-label">
+                                Cidade:
+                            </label>
+                            <input
+                                type="text"
+                                id="iCidade"
+                                name="cidade"
+                                value={newTalento.cidade}
+                                className="form-control"
                                 required=""
                                 onChange={handleInputChange}
                             />
                         </div>
+
                         <div className="form-group my-3">
                             <label htmlFor="iEstado" className="form-label">
                                 Estado:
@@ -166,21 +231,7 @@ export default function createTalento() {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <div className="form-group my-3">
-                            <label htmlFor="iCidade" className="form-label">
-                                Cidade:
-                            </label>
-                            <input
-                                type="text"
-                                id="iCidade"
-                                name="cidade"
-                                value={newTalento.cidade}
-                                className="form-control"
-                                required=""
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                    </fieldset>{" "}
+                    </fieldset>
                     <div>
                         <button
                             className="btn btn-primary mx-1"

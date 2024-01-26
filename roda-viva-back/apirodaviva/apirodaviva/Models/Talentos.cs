@@ -36,6 +36,11 @@ namespace apirodaviva.Models
         [Required(ErrorMessage = "Campo bairro é obrigatório")]
         public string Bairro { get; set; }
 
+        [Required(ErrorMessage = "Campo casa é obrigatório")]
+        public string Casa { get; set; }
+
+
+
         [Required(ErrorMessage = "Campo Cidade é obrigatório")]
         public string Cidade { get; set; }
 
