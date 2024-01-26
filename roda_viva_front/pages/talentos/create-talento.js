@@ -196,7 +196,7 @@ export default function createTalento() {
                             />
                         </div>
                     </fieldset>{" "}
-                    <div style={{ paddingBottom: 200 }}>
+                    <div>
                         <button
                             className="btn btn-primary mx-1"
                             onClick={handleCreateNewTalento}

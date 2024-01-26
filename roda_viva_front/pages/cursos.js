@@ -3,7 +3,7 @@ export default function cursos() {
         <>
             <section
                 className="container-fluid bg-info"
-                style={{ paddingTop: 110 }}
+                style={{ paddingTop: 100 }}
             >
                 <div className="container py-3">
                     <div className="input-group mb-3">
@@ -192,7 +192,7 @@ export default function cursos() {
                             </div>
                         </a>
                     </div>
-                    <div className="col" style={{ paddingBottom: "100px" }}>
+                    <div className="col">
                         <a
                             className="text-dark"
                             href="https://recode.org.br/programacao/"

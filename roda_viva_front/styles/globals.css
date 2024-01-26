@@ -1,11 +1,5 @@
 /*CSS personalizado do footer*/
-.container-wrapper {
-    position: relative;
-    min-height: 100vh;
-}
-footer {
-    position: absolute;
-}
+
 .socials-paragraph {
     color: #ffffff;
     font-size: 14px;
