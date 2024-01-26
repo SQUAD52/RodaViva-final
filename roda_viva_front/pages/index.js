@@ -35,7 +35,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="btn-group gap-1 flex-wrap mt-5">
-                        <a href="/cadastro">
+                        <a href="/talento/create-talento">
                             <button
                                 type="button"
                                 className="btn btn-light border-black"
