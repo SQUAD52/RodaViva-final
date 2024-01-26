@@ -65,7 +65,10 @@ function login() {
                                         <strong>Talento</strong>
                                     </a>{" "}
                                     ou{" "}
-                                    <a class="text-decoration-none" href="">
+                                    <a
+                                        class="text-decoration-none"
+                                        href="/empresas/create-empresa"
+                                    >
                                         <strong>Empresa</strong>
                                     </a>
                                 </p>
