@@ -35,7 +35,11 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="btn-group gap-1 flex-wrap mt-5">
+<<<<<<< HEAD
                         <a href="/talento/create-talento">
+=======
+                        <a href="/talentos/create-talento">
+>>>>>>> d8f138a609ca71df6d2fa809c504ee452782c3a4
                             <button
                                 type="button"
                                 className="btn btn-light border-black"
@@ -502,10 +506,7 @@ export default function Home() {
                     </div>
                 </section>
                 <section className="container-fluid bg-info-subtle py-4">
-                    <div
-                        className="container text-center"
-                        style={{ paddingBottom: "100px" }}
-                    >
+                    <div className="container text-center">
                         <div className="row">
                             <div className="col">
                                 <p className="fw-bold">Áreas</p>

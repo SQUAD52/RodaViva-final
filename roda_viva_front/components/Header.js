@@ -6,11 +6,10 @@ function Header() {
             {/*Inicio do cabeçalho */}
             <header class="navbar navbar-expand-lg bg-light fixed-top shadow-sm">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/">
                         <img
                             src="/img/logoRodaVivaSemFundoPeq.png"
-                            alt="logotipo espaço roda
-              viva"
+                            alt="logotipo espaço roda viva"
                             class="img-responsive"
                         />
                     </a>
@@ -30,7 +29,7 @@ function Header() {
                         id="navbarSupportedContent"
                     >
                         {/*Inicio do menu*/}
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav me-auto">
                             <li class="nav-item">
                                 <a
                                     class="nav-link active"
@@ -41,7 +40,7 @@ function Header() {
                                 </a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="/talento">
+                                <a class="nav-link" href="/talentos">
                                     Talentos
                                 </a>
                             </li>
@@ -61,7 +60,7 @@ function Header() {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/parceiros">
+                                <a class="nav-link" href="/empresas">
                                     Parceiros
                                 </a>
                             </li>
@@ -69,32 +68,13 @@ function Header() {
                         {/*Fim do menu */}
 
                         {/*Inicio login e cadastro */}
-                        <div>
-                            <a href="Cadastro.html">
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-dark"
-                                >
-                                    Login
-                                </button>
-                            </a>
-                            <a href="/talento/create-talento">
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-light border-black"
-                                >
-                                    Cadastre-se como talento
-                                </button>
-                            </a>
-                            <a href="/talento">
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-warning my-2"
-                                >
-                                    Contratar talento
-                                </button>
-                            </a>
-                        </div>
+
+                        <a href="/login">
+                            <button type="button" class="btn btn btn-dark">
+                                Login
+                            </button>
+                        </a>
+
                         {/*Fim login e cadastro*/}
                     </div>
                 </div>
