@@ -121,6 +121,6 @@ export default function deleteTalento() {
                 </div>
             </div>
         </main >
-        //teste
+        //teste1
     )
 }
