@@ -2,7 +2,7 @@ function contato() {
     return (
         <>
             <main>
-                <section style={{ paddingBottom: "100px" }}>
+                <section>
                     <div
                         className="card card-profile shadow pb-2"
                         id="fale-conosco"
