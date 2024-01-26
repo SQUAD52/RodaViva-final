@@ -35,7 +35,11 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="btn-group gap-1 flex-wrap mt-5">
+<<<<<<< HEAD
+                        <a href="/talento/create-talento">
+=======
                         <a href="/talentos/create-talento">
+>>>>>>> d8f138a609ca71df6d2fa809c504ee452782c3a4
                             <button
                                 type="button"
                                 className="btn btn-light border-black"

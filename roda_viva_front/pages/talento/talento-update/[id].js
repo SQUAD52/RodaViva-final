@@ -1,34 +1,61 @@
 import axios from "axios";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-export default function createTalento() {
-    const [newTalento, setNewTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", cidade: "", estado: "" });
-
+export default function updateTalento() {
+    const [talento, setTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", cidade: "", estado: "" });
     const router = useRouter();
+    const { id } = router.query;
+
+
     const handleInputChange = (e) => {
-        setNewTalento({ ...newTalento, [e.target.name]: e.target.value });
+        setTalento({ ...talento, [e.target.name]: e.target.value });
     };
 
-    const handleCreateNewTalento = (e) => {
-        e.preventDefault();
+    useEffect(() => {
         axios
-            .post("https://localhost:7226/api/talentos", newTalento)
-            .then(() => {
-                router.push("/talento");
+            .get('https://localhost:7226/api/Talentos/' + talento.idTalento)
+            .then((response) => {
+                setTalento(response.data)
             })
             .catch((error) => {
-                console.error("Erro ao buscar detalhes da Categoria", error);
-            });
-    };
-    console.log(newTalento);
+                console.error("Erro ao buscar detalhes do destino", error)
+            })
+    }, [talento.idTalento])
+
+    const handleUpdateTalento = ()=>{
+        axios
+        .put('https://localhost:7226/api/Talentos/' + talento.idTalento, talento)
+        .then(() => {
+            router.push("/talento");
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar detalhes do destino", error);
+        });
+    }
     return (
         <>
             <section style={{ paddingTop: 100 }}>
-                <div className="container-fluid">
+                <div
+                    className="container-fluid"
+                >
                     <fieldset>
                         <legend className="my-3">Dados Pessoais</legend>
+                        <div className="form-group my-3">
+                            <label htmlFor="iId" className="form-label">
+                                id:
+                            </label>
+                            <input
+                                type="text"
+                                id="iId"
+                                name="id"
+                                value={talento.idTalento = id}
+                                className="form-control"
+                                required=""
+                                onChange={handleInputChange}
+                            />
+                        </div>
                         <div className="form-group my-3">
                             <label htmlFor="iNome" className="form-label">
                                 Nome:
@@ -37,7 +64,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iNome"
                                 name="nome"
-                                value={newTalento.nome}
+                                value={talento.nome}
                                 className="form-control"
                                 required=""
                                 onChange={handleInputChange}
@@ -51,7 +78,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iCpf"
                                 name="cpf"
-                                value={newTalento.cpf}
+                                value={talento.cpf}
                                 className="form-control"
                                 maxLength={11}
                                 required=""
@@ -69,7 +96,7 @@ export default function createTalento() {
                                 type="date"
                                 id="iDataNascimento"
                                 name="dataNasc"
-                                value={newTalento.dataNasc}
+                                value={talento.dataNasc}
                                 className="form-control"
                                 required=""
                                 onChange={handleInputChange}
@@ -83,7 +110,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iEmail"
                                 name="email"
-                                value={newTalento.email}
+                                value={talento.email}
                                 className="form-control"
                                 required=""
                                 onChange={handleInputChange}
@@ -97,7 +124,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iFormacao"
                                 name="formacao"
-                                value={newTalento.formacao}
+                                value={talento.formacao}
                                 className="form-control"
                                 required=""
                                 onChange={handleInputChange}
@@ -111,7 +138,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iTelefone"
                                 name="telefone"
-                                value={newTalento.telefone}
+                                value={talento.telefone}
                                 className="form-control"
                                 maxLength={11}
                                 required=""
@@ -129,7 +156,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iCep"
                                 name="cep"
-                                value={newTalento.cep}
+                                value={talento.cep}
                                 className="form-control"
                                 maxLength={9}
                                 required=""
@@ -144,7 +171,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iEndereco"
                                 name="endereco"
-                                value={newTalento.endereco}
+                                value={talento.endereco}
                                 className="form-control"
                                 required=""
                                 onChange={handleInputChange}
@@ -158,7 +185,7 @@ export default function createTalento() {
                                 type="text"
                                 id="iEstado"
                                 name="estado"
-                                value={newTalento.estado}
+                                value={talento.estado}
                                 className="form-control"
                                 placeholder="GO, DF, MT, AM, CE..."
                                 maxLength={2}
@@ -174,19 +201,16 @@ export default function createTalento() {
                                 type="text"
                                 id="iCidade"
                                 name="cidade"
-                                value={newTalento.cidade}
+                                value={talento.cidade}
                                 className="form-control"
                                 required=""
                                 onChange={handleInputChange}
                             />
                         </div>
                     </fieldset>{" "}
-                    <div>
-                        <button
-                            className="btn btn-primary mx-1"
-                            onClick={handleCreateNewTalento}
-                        >
-                            Cadastrar
+                    <div >
+                        <button onClick={handleUpdateTalento} className="btn btn-primary mx-1">
+                            Atualizar
                         </button>
                         <Link href="/talento" className="btn btn-danger my-3">
                             Cancelar
@@ -195,5 +219,5 @@ export default function createTalento() {
                 </div>
             </section>
         </>
-    );
+    )
 }

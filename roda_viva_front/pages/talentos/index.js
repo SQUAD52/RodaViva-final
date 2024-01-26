@@ -71,13 +71,13 @@ function talentos() {
                                         <td>
                                             <div className="text-center">
                                                 <Link
-                                                    href={`/talento/talento-update/${talento.id}`}
+                                                    href={`/talento/talento-update/${talento.idTalento}`}
                                                     className="btn btn-success"
                                                 >
                                                     Editar
                                                 </Link>
                                                 <Link
-                                                    href={`/talento/talento-delete/${talento.id}`}
+                                                    href={`/talento/talento-delete/${talento.idTalento}`}
                                                     className="btn btn-danger mx-1"
                                                 >
                                                     Excluir{" "}
