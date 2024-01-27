@@ -4,27 +4,41 @@ import { Router, useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export default function createTalento() {
-    const [newTalento, setNewTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", casa:"", bairro:"", cidade: "", estado: "" });
+    const [newTalento, setNewTalento] = useState({
+        idTalento: 0,
+        nome: "",
+        cpf: "",
+        dataNasc: "",
+        email: "",
+        formacao: "",
+        telefone: "",
+        cep: "",
+        endereco: "",
+        casa: "",
+        bairro: "",
+        cidade: "",
+        estado: "",
+    });
     const router = useRouter();
     const [cep, setCep] = useState({});
 
     useEffect(() => {
         axios
-        .get('http://viacep.com.br/ws/'+newTalento.cep+'/json/')
-        .then((response) => {
-            setCep(response.data);
-            setNewTalento(prevState => ({
-                ...prevState,
-                endereco: response.data.logradouro,
-                bairro: response.data.bairro,
-                cidade: response.data.localidade,
-                estado: response.data.uf
-            }));
-        })
-        .catch((error) => {
-            console.error("Erro ao buscar detalhes do cep", error)
-        })
-    }, [newTalento.cep])
+            .get("http://viacep.com.br/ws/" + newTalento.cep + "/json/")
+            .then((response) => {
+                setCep(response.data);
+                setNewTalento((prevState) => ({
+                    ...prevState,
+                    endereco: response.data.logradouro,
+                    bairro: response.data.bairro,
+                    cidade: response.data.localidade,
+                    estado: response.data.uf,
+                }));
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar detalhes do cep", error);
+            });
+    }, [newTalento.cep]);
 
     const handleInputChange = (e) => {
         setNewTalento({ ...newTalento, [e.target.name]: e.target.value });
@@ -41,7 +55,7 @@ export default function createTalento() {
                 console.error("Erro ao buscar detalhes da Categoria", error);
             });
     };
-    console.log(newTalento);
+
     return (
         <>
             <section style={{ paddingTop: 100 }}>
@@ -199,7 +213,7 @@ export default function createTalento() {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        
+
                         <div className="form-group my-3">
                             <label htmlFor="iCidade" className="form-label">
                                 Cidade:

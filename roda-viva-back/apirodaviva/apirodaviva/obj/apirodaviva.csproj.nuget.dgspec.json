@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\55619\\Documents\\Recode\\modulo 5\\Next\\rodaviva-frontNext\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj": {}
+    "C:\\Users\\sgvit\\OneDrive\\Documentos\\projetos-ativos\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj": {}
   },
   "projects": {
-    "C:\\Users\\55619\\Documents\\Recode\\modulo 5\\Next\\rodaviva-frontNext\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj": {
+    "C:\\Users\\sgvit\\OneDrive\\Documentos\\projetos-ativos\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\55619\\Documents\\Recode\\modulo 5\\Next\\rodaviva-frontNext\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj",
+        "projectUniqueName": "C:\\Users\\sgvit\\OneDrive\\Documentos\\projetos-ativos\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj",
         "projectName": "apirodaviva",
-        "projectPath": "C:\\Users\\55619\\Documents\\Recode\\modulo 5\\Next\\rodaviva-frontNext\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj",
-        "packagesPath": "C:\\Users\\55619\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\55619\\Documents\\Recode\\modulo 5\\Next\\rodaviva-frontNext\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\obj\\",
+        "projectPath": "C:\\Users\\sgvit\\OneDrive\\Documentos\\projetos-ativos\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\apirodaviva.csproj",
+        "packagesPath": "C:\\Users\\sgvit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sgvit\\OneDrive\\Documentos\\projetos-ativos\\RodaViva-final\\roda-viva-back\\apirodaviva\\apirodaviva\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\55619\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sgvit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,14 +1,39 @@
-import React from "react";
+import axios from "axios";
+import { Router, useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 function createEmpresa() {
+    const [newEmpresa, setNewEmpresa] = useState({
+        nome: "",
+        cnpj: "",
+        email: "",
+        telefone: "",
+        cep: "",
+        endereco: "",
+        cidade: "",
+        estado: "",
+        vagas: "",
+    });
+    const router = useRouter();
+
+    const handleInputChange = (e) => {
+        setNewEmpresa({ ...newEmpresa, [e.target.name]: e.target.value });
+    };
+    const handleCreateNewEmpresa = (e) => {
+        e.preventDefault();
+        axios
+            .post("https://localhost:7226/api/empresas", newEmpresa)
+            .then(() => {
+                router.push("/empresas");
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar detalhes da Categoria", error);
+            });
+    };
+    console.log(newEmpresa);
     return (
         <>
-            <form
-                action="../../empresa-create"
-                className="container-fluid"
-                method="post"
-                style={{ marginTop: 100 }}
-            >
+            <form className="container-fluid" style={{ marginTop: 100 }}>
                 <fieldset>
                     <legend className="my-3">Dados Empresa</legend>
                     <div className="form-group my-3">
@@ -18,9 +43,11 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iNome"
-                            name="nNome"
+                            name="nome"
                             className="form-control"
-                            required=""
+                            required
+                            value={newEmpresa.nome}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="form-group my-3">
@@ -30,10 +57,12 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iCnpj"
-                            name="nCNPJ"
+                            name="cnpj"
                             className="form-control"
                             maxLength={14}
-                            required=""
+                            required
+                            value={newEmpresa.cnpj}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="form-group my-3">
@@ -43,9 +72,11 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iEmail"
-                            name="nEmail"
+                            name="email"
                             className="form-control"
-                            required=""
+                            required
+                            value={newEmpresa.email}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="form-group my-3">
@@ -55,10 +86,12 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iTelefone"
-                            name="nTelefone"
+                            name="telefone"
                             className="form-control"
                             maxLength={11}
-                            required=""
+                            required
+                            value={newEmpresa.telefone}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="form-group my-3">
@@ -68,9 +101,11 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iVagas"
-                            name="nVagas"
+                            name="vagas"
                             className="form-control"
-                            required=""
+                            required
+                            value={newEmpresa.vagas}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </fieldset>
@@ -83,10 +118,12 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iCep"
-                            name="nCep"
+                            name="cep"
                             className="form-control"
                             maxLength={9}
-                            required=""
+                            required
+                            value={newEmpresa.cep}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="form-group my-3">
@@ -96,9 +133,11 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iEndereco"
-                            name="nEndereco"
+                            name="endereco"
                             className="form-control"
-                            required=""
+                            required
+                            value={newEmpresa.endereco}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="form-group my-3">
@@ -108,11 +147,13 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iEstado"
-                            name="nEstado"
+                            name="estado"
                             className="form-control"
                             placeholder="GO, DF, MT, AM, CE..."
                             maxLength={2}
-                            required=""
+                            required
+                            value={newEmpresa.estado}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="form-group my-3">
@@ -122,16 +163,21 @@ function createEmpresa() {
                         <input
                             type="text"
                             id="iCidade"
-                            name="nCidade"
+                            name="cidade"
                             className="form-control"
-                            required=""
+                            required
+                            value={newEmpresa.cidade}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </fieldset>
-                <button type="submit" className="btn btn-primary">
+                <button
+                    className="btn btn-primary"
+                    onClick={handleCreateNewEmpresa}
+                >
                     Cadastrar
                 </button>
-                <a href="" className="btn btn-danger my-3">
+                <a href className="btn btn-danger my-3">
                     Cancelar
                 </a>
             </form>
