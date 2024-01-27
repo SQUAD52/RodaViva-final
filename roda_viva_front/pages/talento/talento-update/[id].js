@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export default function updateTalento() {
-    const [talento, setTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", cidade: "", estado: "" });
+    const [talento, setTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", casa:"", bairro:"", cidade: "", estado: "" });
     const router = useRouter();
+    const [cep, setCep] = useState({});
     const { id } = router.query;
 
 
@@ -23,6 +24,24 @@ export default function updateTalento() {
                 console.error("Erro ao buscar detalhes do destino", error)
             })
     }, [talento.idTalento])
+
+    useEffect(() => {
+        axios
+        .get('http://viacep.com.br/ws/'+talento.cep+'/json/')
+        .then((response) => {
+            setCep(response.data);
+            setTalento(prevState => ({
+                ...prevState,
+                endereco: response.data.logradouro,
+                bairro: response.data.bairro,
+                cidade: response.data.localidade,
+                estado: response.data.uf
+            }));
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar detalhes do cep", error)
+        })
+    }, [talento.cep])
 
     const handleUpdateTalento = ()=>{
         axios
@@ -147,7 +166,7 @@ export default function updateTalento() {
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Logradouro</legend>
+                    <legend>Logradouro</legend>
                         <div className="form-group my-3">
                             <label htmlFor="iCep" className="form-label">
                                 CEP:
@@ -159,10 +178,11 @@ export default function updateTalento() {
                                 value={talento.cep}
                                 className="form-control"
                                 maxLength={9}
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
+
                         <div className="form-group my-3">
                             <label htmlFor="iEndereco" className="form-label">
                                 Endereço:
@@ -173,10 +193,55 @@ export default function updateTalento() {
                                 name="endereco"
                                 value={talento.endereco}
                                 className="form-control"
+                                required
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group my-3">
+                            <label htmlFor="iCasa" className="form-label">
+                                Casa:
+                            </label>
+                            <input
+                                type="text"
+                                id="iCasa"
+                                name="casa"
+                                value={talento.casa}
+                                className="form-control"
+                                required
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group my-3">
+                            <label htmlFor="iBairro" className="form-label">
+                                Bairro:
+                            </label>
+                            <input
+                                type="text"
+                                id="iBairro"
+                                name="bairro"
+                                value={talento.bairro}
+                                className="form-control"
+                                required
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        
+                        <div className="form-group my-3">
+                            <label htmlFor="iCidade" className="form-label">
+                                Cidade:
+                            </label>
+                            <input
+                                type="text"
+                                id="iCidade"
+                                name="cidade"
+                                value={talento.cidade}
+                                className="form-control"
                                 required=""
                                 onChange={handleInputChange}
                             />
                         </div>
+
                         <div className="form-group my-3">
                             <label htmlFor="iEstado" className="form-label">
                                 Estado:
@@ -193,21 +258,7 @@ export default function updateTalento() {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <div className="form-group my-3">
-                            <label htmlFor="iCidade" className="form-label">
-                                Cidade:
-                            </label>
-                            <input
-                                type="text"
-                                id="iCidade"
-                                name="cidade"
-                                value={talento.cidade}
-                                className="form-control"
-                                required=""
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                    </fieldset>{" "}
+                    </fieldset>
                     <div >
                         <button onClick={handleUpdateTalento} className="btn btn-primary mx-1">
                             Atualizar

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apirodaviva.Context;
 
@@ -11,9 +12,10 @@ using apirodaviva.Context;
 namespace apirodaviva.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240126184153_casa")]
+    partial class casa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,10 +118,6 @@ namespace apirodaviva.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Casa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Cep")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -158,6 +156,10 @@ namespace apirodaviva.Migrations
                         .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("casa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

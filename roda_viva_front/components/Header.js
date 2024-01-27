@@ -40,7 +40,7 @@ function Header() {
                                 </a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="/talentos">
+                                <a class="nav-link" href="/talento">
                                     Talentos
                                 </a>
                             </li>
