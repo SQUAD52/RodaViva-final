@@ -50,6 +50,7 @@ export default function createTalento() {
             })
     }, [newTalento.cep])
 
+
     const handleInputChange = (e) => {
         setNewTalento({ ...newTalento, [e.target.name]: e.target.value });
     };
@@ -65,7 +66,6 @@ export default function createTalento() {
             });
     };
 
-    console.log(consultaTalento)
     return (
         <>
             <section style={{ paddingTop: 100 }}>
