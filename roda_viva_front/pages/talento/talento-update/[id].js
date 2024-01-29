@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export default function updateTalento() {
-    const [talento, setTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", casa:"", bairro:"", cidade: "", estado: "" });
+    const [talento, setTalento] = useState({ idTalento: 0, nome: "", cpf: "", dataNasc: "", email: "", formacao: "", telefone: "", cep: "", endereco: "", casa: "", bairro: "", cidade: "", estado: "" });
     const router = useRouter();
     const [cep, setCep] = useState({});
     const { id } = router.query;
@@ -27,31 +27,31 @@ export default function updateTalento() {
 
     useEffect(() => {
         axios
-        .get('http://viacep.com.br/ws/'+talento.cep+'/json/')
-        .then((response) => {
-            setCep(response.data);
-            setTalento(prevState => ({
-                ...prevState,
-                endereco: response.data.logradouro,
-                bairro: response.data.bairro,
-                cidade: response.data.localidade,
-                estado: response.data.uf
-            }));
-        })
-        .catch((error) => {
-            console.error("Erro ao buscar detalhes do cep", error)
-        })
+            .get('http://viacep.com.br/ws/' + talento.cep + '/json/')
+            .then((response) => {
+                setCep(response.data);
+                setTalento(prevState => ({
+                    ...prevState,
+                    endereco: response.data.logradouro,
+                    bairro: response.data.bairro,
+                    cidade: response.data.localidade,
+                    estado: response.data.uf
+                }));
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar detalhes do cep", error)
+            })
     }, [talento.cep])
 
-    const handleUpdateTalento = ()=>{
+    const handleUpdateTalento = () => {
         axios
-        .put('https://localhost:7226/api/Talentos/' + talento.idTalento, talento)
-        .then(() => {
-            router.push("/talento");
-        })
-        .catch((error) => {
-            console.error("Erro ao buscar detalhes do destino", error);
-        });
+            .put('https://localhost:7226/api/Talentos/' + talento.idTalento, talento)
+            .then(() => {
+                router.push("/talento");
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar detalhes do destino", error);
+            });
     }
     return (
         <>
@@ -66,12 +66,13 @@ export default function updateTalento() {
                                 id:
                             </label>
                             <input
+                                readOnly
                                 type="text"
                                 id="iId"
                                 name="id"
                                 value={talento.idTalento = id}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -85,7 +86,7 @@ export default function updateTalento() {
                                 name="nome"
                                 value={talento.nome}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -94,13 +95,14 @@ export default function updateTalento() {
                                 CPF:
                             </label>
                             <input
+                                readOnly
                                 type="text"
                                 id="iCpf"
                                 name="cpf"
                                 value={talento.cpf}
                                 className="form-control"
                                 maxLength={11}
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -117,7 +119,7 @@ export default function updateTalento() {
                                 name="dataNasc"
                                 value={talento.dataNasc}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -131,7 +133,7 @@ export default function updateTalento() {
                                 name="email"
                                 value={talento.email}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -145,7 +147,7 @@ export default function updateTalento() {
                                 name="formacao"
                                 value={talento.formacao}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -160,13 +162,13 @@ export default function updateTalento() {
                                 value={talento.telefone}
                                 className="form-control"
                                 maxLength={11}
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
                     </fieldset>
                     <fieldset>
-                    <legend>Logradouro</legend>
+                        <legend>Logradouro</legend>
                         <div className="form-group my-3">
                             <label htmlFor="iCep" className="form-label">
                                 CEP:
@@ -226,7 +228,7 @@ export default function updateTalento() {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        
+
                         <div className="form-group my-3">
                             <label htmlFor="iCidade" className="form-label">
                                 Cidade:
@@ -237,7 +239,7 @@ export default function updateTalento() {
                                 name="cidade"
                                 value={talento.cidade}
                                 className="form-control"
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -254,7 +256,7 @@ export default function updateTalento() {
                                 className="form-control"
                                 placeholder="GO, DF, MT, AM, CE..."
                                 maxLength={2}
-                                required=""
+                                required
                                 onChange={handleInputChange}
                             />
                         </div>

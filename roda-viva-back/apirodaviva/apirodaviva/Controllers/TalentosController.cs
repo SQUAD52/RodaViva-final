@@ -42,6 +42,15 @@ namespace apirodaviva.Controllers
             return talentos;
         }
 
+        // GET: api/Talentos/cpf/12345678901
+        [HttpGet("cpf/{cpf}")]
+        public async Task<ActionResult<Talentos>> GetTalentosByCpf(string cpf)
+        {
+            var talentos = await _context.Talentos.FirstOrDefaultAsync(t => t.Cpf == cpf);
+
+            return talentos;
+        }
+
         // PUT: api/Talentos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

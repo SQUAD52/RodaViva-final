@@ -26,3 +26,25 @@
 .socials a:hover i {
     color: aqua;
 }
+
+
+.cardTalentoBlue {
+    background-color: rgb(79, 207, 203) !important;
+}
+
+.cardTalentoGreen {
+    background-color: rgb(45, 46, 46) !important;
+}
+
+.cardTalentoCinza {
+    background-color: #edf1ec !important;
+}
+
+.alinhaCards {
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100%  !important;
+
+}
