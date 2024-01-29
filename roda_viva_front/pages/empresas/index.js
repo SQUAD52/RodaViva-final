@@ -21,7 +21,7 @@ function empresas() {
     }
 
     function clickDelete(idEmpresa) {
-        if (window.confirm("Você tem certeza que deseja excluir o Talento Nº " + idEmpresa + "?")) {
+        if (window.confirm("Você tem certeza que deseja excluir o Empresa Nº " + idEmpresa + "?")) {
             axios
                 .delete("https://localhost:7226/api/empresas/" + idEmpresa)
                 .then((response) => {
@@ -37,7 +37,7 @@ function empresas() {
                     }
                 })
                 .catch((error) => {
-                    console.error("Talento não excluido", error);
+                    console.error("Empresa não excluido", error);
                 });
         }
     }
