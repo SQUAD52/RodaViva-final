@@ -42,6 +42,15 @@ namespace apirodaviva.Controllers
             return empresas;
         }
 
+        // GET: api/Empresas/cnpj/12345678901
+        [HttpGet("cnpj/{cnpj}")]
+        public async Task<ActionResult<Empresas>> GetTalentosByCpf(string cnpj)
+        {
+            var empresas = await _context.Empresas.FirstOrDefaultAsync(e => e.Cnpj == cnpj);
+
+            return empresas;
+        }
+
         // PUT: api/Empresas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
