@@ -4,17 +4,17 @@ function Header() {
     return (
         <>
             {/*Inicio do cabeçalho */}
-            <header class="navbar navbar-expand-lg bg-light fixed-top shadow-sm">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/">
+            <header className="navbar navbar-expand-lg bg-light fixed-top shadow-sm">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="/">
                         <img
                             src="/img/logoRodaVivaSemFundoPeq.png"
                             alt="logotipo espaço roda viva"
-                            class="img-responsive"
+                            className="img-responsive"
                         />
                     </a>
                     <button
-                        class="navbar-toggler"
+                        className="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent"
@@ -22,45 +22,45 @@ function Header() {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span class="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
                     <div
-                        class="collapse navbar-collapse"
+                        className="collapse navbar-collapse"
                         id="navbarSupportedContent"
                     >
                         {/*Inicio do menu*/}
-                        <ul class="navbar-nav me-auto">
-                            <li class="nav-item">
+                        <ul className="navbar-nav me-auto">
+                            <li className="nav-item">
                                 <a
-                                    class="nav-link active"
+                                    className="nav-link active"
                                     aria-current="page"
                                     href={"/"}
                                 >
                                     Home
                                 </a>
                             </li>
-                            <li class=" nav-item">
-                                <a class="nav-link" href="/talento">
+                            <li className=" nav-item">
+                                <a className="nav-link" href="/talento">
                                     Talentos
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/cursos">
+                            <li className="nav-item">
+                                <a className="nav-link" href="/cursos">
                                     Cursos
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/biblioteca">
+                            <li className="nav-item">
+                                <a className="nav-link" href="/biblioteca">
                                     Biblioteca
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contato">
+                            <li className="nav-item">
+                                <a className="nav-link" href="/contato">
                                     Contato
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/empresas">
+                            <li className="nav-item">
+                                <a className="nav-link" href="/empresas">
                                     Parceiros
                                 </a>
                             </li>
@@ -70,7 +70,7 @@ function Header() {
                         {/*Inicio login e cadastro */}
 
                         <a href="/login">
-                            <button type="button" class="btn btn btn-dark">
+                            <button type="button" className="btn btn btn-dark">
                                 Login
                             </button>
                         </a>

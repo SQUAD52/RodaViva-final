@@ -35,7 +35,6 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="btn-group gap-1 flex-wrap mt-5">
-
                         <a href="/talento/create-talento">
                             <button
                                 type="button"
@@ -118,7 +117,7 @@ export default function Home() {
                             className="img-fluid rounded-start col-lg-6"
                             alt="mulher estudando"
                         />
-                        <div className="card-body col-lg-4">
+                        <div className=" container-fluid card-body col-lg-4">
                             <h5 className="card-title text-light my-4">TI</h5>
                             <button
                                 type="button"
@@ -325,7 +324,7 @@ export default function Home() {
                                         className="progress-bar bg-danger"
                                         style={{ width: "100%" }}
                                     >
-                                        HOME OFFICE
+                                        HO
                                     </div>
                                 </div>
                             </div>
