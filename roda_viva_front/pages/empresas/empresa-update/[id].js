@@ -4,38 +4,28 @@ import { Router, useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 function createEmpresa() {
-    const [newEmpresa, setNewEmpresa] = useState({ idEmpresa: 0, nome: "", cnpj: "", email: "", telefone: "", cep: "", endereco: "", bairro: "", lote: "", cidade: "", estado: "", vagas: "" });
+    const [empresa, setEmpresa] = useState({ idEmpresa: 0, nome: "", cnpj: "", email: "", telefone: "", cep: "", endereco: "", bairro: "", lote: "", cidade: "", estado: "", vagas: "" });
     const router = useRouter();
     const [cep, setCep] = useState({});
-    const [cnpjValido, setCnpjValido] = useState(false);
-    const [consultaEmpresa, setConsultaEmpresa] = useState(null)
+    const { id } = router.query;
+
+    useEffect(()=>{
+        axios
+        .get("https://localhost:7226/api/empresas/" + empresa.idEmpresa)
+        .then((response)=>{
+            setEmpresa(response.data);
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar detalhes do cep", error)
+        })
+    },[empresa.idEmpresa])
 
     useEffect(() => {
         axios
-            .get("https://localhost:7226/api/empresas/cnpj/" + newEmpresa.cnpj)
-            .then((response) => {
-                setConsultaEmpresa(response.data);
-            })
-            .catch((error) => {
-                console.error("Erro ao buscar Cnpj", error);
-            });
-    }, [newEmpresa.cnpj]);
-
-    useEffect(() => {
-        if (typeof consultaEmpresa !== 'object' || consultaEmpresa === null) {
-            setCnpjValido(false);
-        }
-        else {
-            setCnpjValido(true);
-        };
-    }, [consultaEmpresa]);
-
-    useEffect(() => {
-        axios
-            .get('http://viacep.com.br/ws/' + newEmpresa.cep + '/json/')
+            .get('http://viacep.com.br/ws/' + empresa.cep + '/json/')
             .then((response) => {
                 setCep(response.data);
-                setNewEmpresa(prevState => ({
+                setEmpresa(prevState => ({
                     ...prevState,
                     endereco: response.data.logradouro,
                     bairro: response.data.bairro,
@@ -46,15 +36,15 @@ function createEmpresa() {
             .catch((error) => {
                 console.error("Erro ao buscar detalhes do cep", error)
             })
-    }, [newEmpresa.cep])
+    }, [empresa.cep])
 
     const handleInputChange = (e) => {
-        setNewEmpresa({ ...newEmpresa, [e.target.name]: e.target.value });
+        setEmpresa({ ...empresa, [e.target.name]: e.target.value });
     };
 
-    const handleCreateNewEmpresa = () => {
+    const handleUpdateEmpresa = () => {
         axios
-            .post("https://localhost:7226/api/empresas", newEmpresa)
+            .put("https://localhost:7226/api/empresas/" + empresa.idEmpresa, empresa)
             .then(() => {
                 router.push("/empresas");
             })
@@ -62,12 +52,26 @@ function createEmpresa() {
                 console.error("Erro ao buscar detalhes da Categoria", error);
             });
     };
-    console.log(consultaEmpresa);
     return (
         <>
             <section className="container-fluid" style={{ marginTop: 100 }}>
                 <fieldset>
                     <legend className="my-3">Dados Empresa</legend>
+                    <div className="form-group my-3">
+                        <label htmlFor="iId" className="form-label">
+                            Id:
+                        </label>
+                        <input
+                            readOnly
+                            type="text"
+                            id="iId"
+                            name="idEmpresa"
+                            className="form-control"
+                            required
+                            value={empresa.idEmpresa = id}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                     <div className="form-group my-3">
                         <label htmlFor="iNome" className="form-label">
                             Nome:
@@ -78,7 +82,7 @@ function createEmpresa() {
                             name="nome"
                             className="form-control"
                             required
-                            value={newEmpresa.nome}
+                            value={empresa.nome}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -87,13 +91,14 @@ function createEmpresa() {
                             CNPJ:
                         </label>
                         <input
+                            readOnly
                             type="text"
                             id="iCnpj"
                             name="cnpj"
                             className="form-control"
                             maxLength={14}
                             required
-                            value={newEmpresa.cnpj}
+                            value={empresa.cnpj}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -107,7 +112,7 @@ function createEmpresa() {
                             name="email"
                             className="form-control"
                             required
-                            value={newEmpresa.email}
+                            value={empresa.email}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -122,7 +127,7 @@ function createEmpresa() {
                             className="form-control"
                             maxLength={11}
                             required
-                            value={newEmpresa.telefone}
+                            value={empresa.telefone}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -136,7 +141,7 @@ function createEmpresa() {
                             name="vagas"
                             className="form-control"
                             required
-                            value={newEmpresa.vagas}
+                            value={empresa.vagas}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -154,7 +159,7 @@ function createEmpresa() {
                             className="form-control"
                             maxLength={9}
                             required
-                            value={newEmpresa.cep}
+                            value={empresa.cep}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -168,7 +173,7 @@ function createEmpresa() {
                             name="endereco"
                             className="form-control"
                             required
-                            value={newEmpresa.endereco}
+                            value={empresa.endereco}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -182,7 +187,7 @@ function createEmpresa() {
                             name="bairro"
                             className="form-control"
                             required
-                            value={newEmpresa.bairro}
+                            value={empresa.bairro}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -196,7 +201,7 @@ function createEmpresa() {
                             name="lote"
                             className="form-control"
                             required
-                            value={newEmpresa.lote}
+                            value={empresa.lote}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -212,7 +217,7 @@ function createEmpresa() {
                             placeholder="GO, DF, MT, AM, CE..."
                             maxLength={2}
                             required
-                            value={newEmpresa.estado}
+                            value={empresa.estado}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -226,17 +231,17 @@ function createEmpresa() {
                             name="cidade"
                             className="form-control"
                             required
-                            value={newEmpresa.cidade}
+                            value={empresa.cidade}
                             onChange={handleInputChange}
                         />
                     </div>
                 </fieldset>
-                {cnpjValido ? null : <button
+                <button
                     className="btn btn-primary"
-                    onClick={handleCreateNewEmpresa}
+                    onClick={handleUpdateEmpresa}
                 >
-                    Cadastrar
-                </button>}
+                    Atualizar
+                </button>
                 <Link href="/empresas" className="btn btn-danger my-3">
                     Cancelar
                 </Link>

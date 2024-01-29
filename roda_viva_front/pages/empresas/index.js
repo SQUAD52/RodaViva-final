@@ -1,9 +1,15 @@
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function empresas() {
     const [empresas, setEmpresas] = useState([]);
+
     useEffect(() => {
+        getEmpresas();
+    }, []);
+
+    function getEmpresas() {
         axios
             .get("https://localhost:7226/api/empresas")
             .then((response) => {
@@ -12,32 +18,68 @@ function empresas() {
             .catch((error) => {
                 console.error("Erro ao buscar lista de cadastros", error);
             });
-    }, []);
+    }
+
+    function clickDelete(idEmpresa) {
+        if (window.confirm("Você tem certeza que deseja excluir o Talento Nº " + idEmpresa + "?")) {
+            axios
+                .delete("https://localhost:7226/api/empresas/" + idEmpresa)
+                .then((response) => {
+                    console.log(response.status);  // Imprime o status da resposta
+                    console.log(response.data);   // Imprime os dados da resposta
+
+                    if (response.status === 204) {  // Verifique se o status da resposta é 204
+                        router.replace(router.asPath);  // Atualiza a página atual
+
+
+                        getEmpresas();
+
+                    }
+                })
+                .catch((error) => {
+                    console.error("Talento não excluido", error);
+                });
+        }
+    }
+    console.log(empresas)
     return (
         <>
             {/*Corpo com as empresas parceiras*/}
-            <main className="container my-3" id="listaParceiros">
-                {empresas.map((empresa) => (
-                    <section className="row" style={{ marginTop: 100 }}>
-                        <div
-                            className="col-sm border-bottom "
-                            key={empresa.idEmpresa}
-                        >
-                            {/*<img
-                                className="img-fluid"
-                                src="img/img-parceiros/BorceleArquitetura.png"
-                                alt=""
-                />*/}
-                            <h2 className="text-center">{empresa.nome}</h2>
-                            <p>{}</p>
-                            <p>{empresa.email}</p>
-                            <p>{empresa.telefone}</p>
-                            <p>{empresa.cnpj}</p>
-                            <p>{empresa.endereço}</p>
-                            <p>{empresa.cep}</p>
+            <main className="container my-3" style={{ paddingTop: 100 }}>
+                <div className="row">
+                    {empresas.map((empresa) => (
+                        <div className="col-sm-4">
+                            <div className="card alinhaCards">
+                                <div className="card-body">
+                                    <h5 className="card-title">{empresa.nome}</h5>
+                                    <hr />
+                                    <h6 className="card-subtitle mb-2 text-body-secondary fas fa-map-marker-alt"> {empresa.cidade} / {empresa.estado}</h6>
+                                    <hr />
+                                    <strong className=" fa fa-wheelchair-alt fw-bold"> Vagas:</strong>
+                                    <p className="text-muted"> {empresa.vagas}</p>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="col text-center align-self-end">
+
+                                            <Link href={`/empresas/empresa-detalhes/${empresa.idEmpresa}`} className=" btn btn-warning mx-1">
+                                                <i className="fas fa-eye"></i>
+                                            </Link>
+
+                                            <Link href={`/empresas/empresa-update/${empresa.idEmpresa}`} className=" btn btn-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </Link>
+
+                                            <button onClick={() => clickDelete(empresa.idEmpresa)} className=" btn btn-danger mx-1">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </section>
-                ))}
+                    ))}
+                </div>
+
             </main>
         </>
     );
