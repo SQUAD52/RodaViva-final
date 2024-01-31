@@ -5,6 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function App({ Component, pageProps }) {
     useEffect(() => {
@@ -12,13 +13,6 @@ export default function App({ Component, pageProps }) {
     }, []);
     return (
         <>
-            <Head>
-                <Script
-                    defer
-                    src="https://kit.fontawesome.com/fbadad80a0.js"
-                    crossOrigin="anonymous"
-                ></Script>
-            </Head>
             <MainContainer>
                 <Component {...pageProps} />
             </MainContainer>

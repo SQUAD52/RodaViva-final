@@ -64,6 +64,11 @@ function Header() {
                                     Parceiros
                                 </a>
                             </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/candidato">
+                                    Candidatos
+                                </a>
+                            </li>
                         </ul>
                         {/*Fim do menu */}
 
