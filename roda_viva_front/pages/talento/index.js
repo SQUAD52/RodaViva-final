@@ -32,8 +32,8 @@ function talentos() {
 
                     if (response.status === 204) {  // Verifique se o status da resposta é 204
                         router.replace(router.asPath);  // Atualiza a página atual
-                   
-                   
+
+
                         getTalentos();
 
                     }
@@ -91,14 +91,18 @@ function talentos() {
                                 {talentos.map((talento) => (
                                     <tr className="text-center">
                                         <th scope="row">{talento.idTalento}</th>
-                                        <td>{talento.nome}</td>
+                                        <td>
+                                            <Link href={`//candidato/create-candidatoT/${talento.idTalento}`}>
+                                                {talento.nome}
+                                            </Link>
+                                        </td>
                                         <td>{talento.cidade} / {talento.estado}</td>
                                         <td>{talento.formacao}</td>
 
                                         <td>
                                             <div className="text-center">
 
-                                                <Link href={`/talento/talento-detalhes/${talento.idTalento}`} className="btn btn-warning mx-1">
+                                                <Link href={`talento/talento-detalhes/${talento.idTalento}`} className="btn btn-warning mx-1">
                                                     <i className="fas fa-eye"></i>
                                                 </Link>
 
@@ -118,7 +122,7 @@ function talentos() {
                     </section>
                 </article>
             </div>
-        </main>
+        </main >
     );
 }
 
