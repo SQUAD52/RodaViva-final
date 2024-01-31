@@ -60,7 +60,7 @@ function login() {
                                     Cadastrar-se como{" "}
                                     <a
                                         class="text-decoration-none"
-                                        href="/talentos/create-talento"
+                                        href="/talento/create-talento"
                                     >
                                         <strong>Talento</strong>
                                     </a>{" "}

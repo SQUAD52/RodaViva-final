@@ -1,5 +1,9 @@
-/*CSS personalizado do footer*/
+/*body {
+    font-family: var(--font-DM-sans) !important;
+    font-weight: 700;
+}*/
 
+/*CSS personalizado do footer*/
 .socials-paragraph {
     color: #ffffff;
     font-size: 14px;
@@ -9,8 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 0 0.5rem 0;
-    gap: 25px;
+
+    gap: 1rem;
 }
 
 .socials a {
@@ -19,14 +23,13 @@
 }
 
 .socials a i {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     transition: color 0.4s ease;
 }
 
 .socials a:hover i {
     color: aqua;
 }
-
 
 .cardBlue {
     background-color: rgb(79, 207, 203) !important;
@@ -41,16 +44,52 @@
 }
 
 .alinhaCards {
-
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    height: 100%  !important;
-
+    height: 100% !important;
+}
+.placeholder-branco::-webkit-input-placeholder {
+    color: #ffffff !important;
+    opacity: 0.6 !important;
+    font-size: medium !important;
+}
+.placeholder-branco:-ms-input-placeholder {
+    color: #ffffff !important;
+    opacity: 0.6 !important;
+    font-size: medium !important;
+}
+.placeholder-branco:-moz-placeholder {
+    /* Firefox 18- */
+    color: white;
+    opacity: 0.6 !important;
+    font-size: medium !important;
 }
 
-.fontsize{
-    font-size:9pt !important;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.placeholder-branco::-moz-placeholder {
+    /* Firefox 19+ */
+    color: white;
+    opacity: 0.6 !important;
+    font-size: medium !important;
+}
+.placeholder-branco:focus {
+    box-shadow: none !important;
+}
+.icone-centralizado {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: -moz-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.icone-centralizado i {
+    color: #fff;
+
+    font-size: 1.5em !important;
 }
 
+.fontsize {
+    font-size: 9pt !important;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
