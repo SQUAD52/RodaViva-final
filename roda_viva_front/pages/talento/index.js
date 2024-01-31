@@ -23,19 +23,24 @@ function talentos() {
     }, []);
 
     function clickDelete(idTalento) {
-        if (window.confirm("Você tem certeza que deseja excluir o Talento Nº " + idTalento + "?")) {
+        if (
+            window.confirm(
+                "Você tem certeza que deseja excluir o Talento Nº " +
+                    idTalento +
+                    "?"
+            )
+        ) {
             axios
                 .delete("https://localhost:7226/api/talentos/" + idTalento)
                 .then((response) => {
-                    console.log(response.status);  // Imprime o status da resposta
-                    console.log(response.data);   // Imprime os dados da resposta
+                    console.log(response.status); // Imprime o status da resposta
+                    console.log(response.data); // Imprime os dados da resposta
 
-                    if (response.status === 204) {  // Verifique se o status da resposta é 204
-                        router.replace(router.asPath);  // Atualiza a página atual
-
+                    if (response.status === 204) {
+                        // Verifique se o status da resposta é 204
+                        router.replace(router.asPath); // Atualiza a página atual
 
                         getTalentos();
-
                     }
                 })
                 .catch((error) => {
@@ -43,7 +48,6 @@ function talentos() {
                 });
         }
     }
-
 
     return (
         <main className="container-fluid " style={{ paddingTop: 100 }}>
@@ -87,30 +91,45 @@ function talentos() {
                                 </tr>
                             </thead>
                             <tbody>
-
                                 {talentos.map((talento) => (
                                     <tr className="text-center">
                                         <th scope="row">{talento.idTalento}</th>
                                         <td>
-                                            <Link href={`//candidato/create-candidatoT/${talento.idTalento}`}>
+                                            <Link
+                                                href={`//candidato/create-candidatoT/${talento.idTalento}`}
+                                            >
                                                 {talento.nome}
                                             </Link>
                                         </td>
-                                        <td>{talento.cidade} / {talento.estado}</td>
+                                        <td>
+                                            {talento.cidade} / {talento.estado}
+                                        </td>
                                         <td>{talento.formacao}</td>
 
                                         <td>
                                             <div className="text-center">
-
-                                                <Link href={`talento/talento-detalhes/${talento.idTalento}`} className="btn btn-warning mx-1">
+                                                <Link
+                                                    href={`talento/talento-detalhes/${talento.idTalento}`}
+                                                    className="btn btn-warning mx-1"
+                                                >
                                                     <i className="fas fa-eye"></i>
                                                 </Link>
 
                                                 <Link
-                                                    href={`/talento/talento-update/${talento.idTalento}`} className="btn btn-primary"><i class="fas fa-edit"></i>
+                                                    href={`/talento/talento-update/${talento.idTalento}`}
+                                                    className="btn btn-primary"
+                                                >
+                                                    <i class="fas fa-edit"></i>
                                                 </Link>
 
-                                                <button onClick={() => clickDelete(talento.idTalento)} className="btn btn-danger mx-1">
+                                                <button
+                                                    onClick={() =>
+                                                        clickDelete(
+                                                            talento.idTalento
+                                                        )
+                                                    }
+                                                    className="btn btn-danger mx-1"
+                                                >
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </div>
@@ -122,7 +141,7 @@ function talentos() {
                     </section>
                 </article>
             </div>
-        </main >
+        </main>
     );
 }
 
