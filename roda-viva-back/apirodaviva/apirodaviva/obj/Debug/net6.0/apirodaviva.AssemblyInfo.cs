@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("apirodaviva")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ee6c0e0e88169ff39ba38501936177324c00ad1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0eb285178c37843efc6dbc98b97158102b373fda")]
 [assembly: System.Reflection.AssemblyProductAttribute("apirodaviva")]
 [assembly: System.Reflection.AssemblyTitleAttribute("apirodaviva")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
