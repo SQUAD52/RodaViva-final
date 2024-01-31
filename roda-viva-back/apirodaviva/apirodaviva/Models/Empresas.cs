@@ -1,10 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace apirodaviva.Models
 {
     public class Empresas
     {
+        public Empresas() { 
+            Candidatos = new Collection<Candidatos>();
+        }
         [Key]
         public int IdEmpresa { get; set; }
 
@@ -41,7 +45,7 @@ namespace apirodaviva.Models
 
         public string Vagas { get; set; }
 
-        [JsonIgnore]
-        public List<Candidatos> Candidatos { get; set; }
+        public ICollection<Candidatos> Candidatos { get; private set; }
     }
 }
+

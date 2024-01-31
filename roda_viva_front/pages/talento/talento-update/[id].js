@@ -59,6 +59,7 @@ export default function updateTalento() {
                 <div
                     className="container-fluid"
                 >
+                    <h2 className="text-muted text-center">Atualizar Talento</h2>
                     <fieldset>
                         <legend className="my-3">Dados Pessoais</legend>
                         <div className="form-group my-3">

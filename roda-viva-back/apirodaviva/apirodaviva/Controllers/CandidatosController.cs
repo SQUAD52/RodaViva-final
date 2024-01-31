@@ -25,9 +25,11 @@ namespace apirodaviva.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Candidatos>>> GetCandidatos()
         {
-            return await _context.Candidatos.ToListAsync();
+            return await _context.Candidatos
+                .Include(c => c.Empresa)
+                .Include(c => c.Talento)
+                .ToListAsync();
         }
-
         // GET: api/Candidatos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Candidatos>> GetCandidatos(int id)

@@ -4,7 +4,7 @@
 
 namespace apirodaviva.Migrations
 {
-    public partial class primeiro : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,8 @@ namespace apirodaviva.Migrations
                     Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cep = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Endereco = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Lote = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Vagas = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -43,6 +45,8 @@ namespace apirodaviva.Migrations
                     Telefone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cep = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Endereco = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Casa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -59,34 +63,34 @@ namespace apirodaviva.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Cargo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdTalento = table.Column<int>(type: "int", nullable: false),
-                    TalentoIdTalento = table.Column<int>(type: "int", nullable: true),
-                    IdEmpresa = table.Column<int>(type: "int", nullable: false),
-                    EmpresaIdEmpresa = table.Column<int>(type: "int", nullable: true)
+                    IdEmpresa = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Candidatos", x => x.IdCandidato);
                     table.ForeignKey(
-                        name: "FK_Candidatos_Empresas_EmpresaIdEmpresa",
-                        column: x => x.EmpresaIdEmpresa,
+                        name: "FK_Candidatos_Empresas_IdEmpresa",
+                        column: x => x.IdEmpresa,
                         principalTable: "Empresas",
-                        principalColumn: "IdEmpresa");
+                        principalColumn: "IdEmpresa",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Candidatos_Talentos_TalentoIdTalento",
-                        column: x => x.TalentoIdTalento,
+                        name: "FK_Candidatos_Talentos_IdTalento",
+                        column: x => x.IdTalento,
                         principalTable: "Talentos",
-                        principalColumn: "IdTalento");
+                        principalColumn: "IdTalento",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Candidatos_EmpresaIdEmpresa",
+                name: "IX_Candidatos_IdEmpresa",
                 table: "Candidatos",
-                column: "EmpresaIdEmpresa");
+                column: "IdEmpresa");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Candidatos_TalentoIdTalento",
+                name: "IX_Candidatos_IdTalento",
                 table: "Candidatos",
-                column: "TalentoIdTalento");
+                column: "IdTalento");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
