@@ -79,6 +79,7 @@ function talentos() {
                     </div>
                 </aside>
                 <article className="col-md-10 my-1">
+                    <h1>Banco de Talentos</h1>
                     <section>
                         <table className="table table-responsive table-hover">
                             <thead className="table-dark">
@@ -96,7 +97,7 @@ function talentos() {
                                         <th scope="row">{talento.idTalento}</th>
                                         <td>
                                             <Link
-                                                href={`//candidato/create-candidatoT/${talento.idTalento}`}
+                                                href={`/talento/talento-detalhes/${talento.idTalento}`}
                                             >
                                                 {talento.nome}
                                             </Link>
@@ -109,10 +110,10 @@ function talentos() {
                                         <td>
                                             <div className="text-center">
                                                 <Link
-                                                    href={`talento/talento-detalhes/${talento.idTalento}`}
+                                                    href={`/candidato/create-candidatoT/${talento.idTalento}`}
                                                     className="btn btn-warning mx-1"
                                                 >
-                                                    <i className="fas fa-eye"></i>
+                                                    <i className="fa-solid fa-file-contract"></i>
                                                 </Link>
 
                                                 <Link

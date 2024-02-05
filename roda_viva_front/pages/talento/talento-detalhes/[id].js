@@ -79,7 +79,7 @@ export default function detalhesTalento() {
                                             </div>
 
                                             <strong>
-                                                <i className="fas fa-id-card "></i>{" "}
+                                                <i className="fas fa-id-card "></i>
                                                 CPF
                                             </strong>
                                             <p className="text-muted">
@@ -89,7 +89,7 @@ export default function detalhesTalento() {
                                             <hr />
 
                                             <strong>
-                                                <i className="fas fa-calendar-alt "></i>{" "}
+                                                <i className="fas fa-calendar-alt "></i>
                                                 Data de Nascimento
                                             </strong>
                                             <p className="text-muted">
@@ -108,7 +108,7 @@ export default function detalhesTalento() {
                                         </div>
                                         <div className="card-body">
                                             <strong>
-                                                <i className="fas fa-mobile "></i>{" "}
+                                                <i className="fas fa-mobile "></i>
                                                 Telefone
                                             </strong>
                                             <p className="text-muted">
@@ -118,7 +118,7 @@ export default function detalhesTalento() {
                                             <hr />
 
                                             <strong>
-                                                <i className="fas fa-envelope "></i>{" "}
+                                                <i className="fas fa-envelope "></i>
                                                 E-mail
                                             </strong>
                                             <p
@@ -163,7 +163,7 @@ export default function detalhesTalento() {
                                     <hr />
 
                                     <strong>
-                                        <i className="fas fa-map-marker-alt "></i>{" "}
+                                        <i className="fas fa-map-marker-alt "></i>
                                         Cidade
                                     </strong>
                                     <p className="text-muted" id="email">
