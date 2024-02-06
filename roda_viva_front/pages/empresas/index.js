@@ -53,7 +53,8 @@ function empresas() {
                                 <div className="card-body">
                                     <h5 className="card-title">{empresa.nome}</h5>
                                     <hr />
-                                    <p className="card-subtitle  text-body-secondary fontsize fas fa-map-marker-alt"> -  {empresa.cidade} / {empresa.estado}</p>
+                                    <p className="card-subtitle  text-body-secondary">
+                                        <i className="fas fa-map-marker-alt"></i> {empresa.cidade} / {empresa.estado}</p>
                                     <hr />
                                     <strong className=" fa fa-wheelchair-alt fw-bold"> Vagas:</strong>
                                     <p className="text-muted"> {empresa.vagas}</p>
