@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 
 export default function detalhesEmpresa() {
-    const [empresa, setEmpresa] = useState({ idEmpresa:0, nome: "", cnpj: "", email: "", telefone: "", cep: "", endereco: "", bairro: "", lote: "", cidade: "", estado: "", vagas: "" });
+    const [empresa, setEmpresa] = useState({ idEmpresa: 0, nome: "", cnpj: "", email: "", telefone: "", cep: "", endereco: "", bairro: "", lote: "", cidade: "", estado: "", vagas: "" });
     const router = useRouter();
     const { id } = router.query;
 
@@ -13,10 +13,10 @@ export default function detalhesEmpresa() {
         axios
             .get('https://localhost:7226/api/Empresas/' + empresa.idEmpresa)
             .then((response) => {
-                setEmpresa(response.data)
+                setEmpresa(response.data);
             })
             .catch((error) => {
-                console.error("Erro ao buscar detalhes do destino", error)
+                console.error("Erro ao buscar detalhes do destino", error);
             })
     }, [empresa.idEmpresa])
     return (
@@ -47,22 +47,17 @@ export default function detalhesEmpresa() {
                                         <div className="card-body">
 
                                             <div style={{ display: "none" }}>
-                                                <strong><i></i> ID</strong>
+                                                <span>ID</span>
                                                 <p className="text-muted">
                                                     {empresa.idEmpresa = id}
                                                 </p>
                                                 <hr />
                                             </div>
 
-
-                                            <strong><i className="fas fa-id-card "></i> CNPJ</strong>
+                                            <strong ><i className="fas fa-id-card "/> CNPJ</strong>
                                             <p className="text-muted">
                                                 {empresa.cnpj}
                                             </p>
-
-                                            <hr />
-
-                                            
 
                                         </div>
                                     </div>
@@ -75,13 +70,13 @@ export default function detalhesEmpresa() {
                                         </div>
                                         <div className="card-body">
 
-                                            <strong><i className="fas fa-mobile "></i> Telefone</strong>
-                                            <p className="text-muted">{empresa.telefone}</p>
+                                            <strong ><i className="fas fa-mobile"/> Telefone</strong>
+                                            <p className="text-muted ">{empresa.telefone}</p>
 
                                             <hr />
 
-                                            <strong><i className="fas fa-envelope "></i> E-mail</strong>
-                                            <p className="text-muted" id="email" >{empresa.email}</p>
+                                            <strong ><i className="fas fa-envelope "/> E-mail</strong>
+                                            <p className="text-muted " id="email" >{empresa.email}</p>
 
                                         </div>
 
@@ -93,8 +88,9 @@ export default function detalhesEmpresa() {
                                         <div className="card-header cardGreen text-white">
                                             <h4 className="card-title text-center">Vagas</h4>
                                         </div>
-                                        <div className="card-body fa fa-handshake-o">
-                                        <p className="text-muted">{empresa.vagas}</p>
+                                        <div className="card-body">
+
+                                            <p className="text-muted">{empresa.vagas}</p>
 
                                         </div>
                                     </div>
@@ -109,17 +105,17 @@ export default function detalhesEmpresa() {
                                 <div className="card-body">
 
 
-                                    <strong><i className="fas fa-home "></i> Bairro</strong>
+                                    <strong><i className="fas fa-home "/> Bairro</strong>
                                     <p className="text-muted">{empresa.bairro}</p>
 
                                     <hr />
 
-                                    <strong><i className="fas fa-map-marker-alt "></i> Cidade</strong>
+                                    <strong><i className="fas fa-map-marker-alt "/> Cidade</strong>
                                     <p className="text-muted" id="email" >{empresa.cidade}</p>
 
                                     <hr />
 
-                                    <strong><i className="fas fa-map "></i> Estado</strong>
+                                    <strong><i className="fas fa-map "/> Estado</strong>
                                     <p className="text-muted" >{empresa.estado}</p>
 
                                 </div>
@@ -129,6 +125,6 @@ export default function detalhesEmpresa() {
                 </div>
             </div>
         </main >
-        
+
     )
 }

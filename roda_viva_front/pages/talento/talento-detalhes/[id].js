@@ -31,7 +31,7 @@ export default function detalhesTalento() {
             .catch((error) => {
                 console.error("Erro ao buscar detalhes do destino", error);
             });
-    }, [talento.idTalento]);
+    }, [talento.idTalento])
     return (
         <main style={{ paddingTop: 100 }} className="container-fluid">
             <div className="row">
@@ -79,8 +79,7 @@ export default function detalhesTalento() {
                                             </div>
 
                                             <strong>
-                                                <i className="fas fa-id-card "></i>
-                                                CPF
+                                                <i className="fas fa-id-card "></i> CPF
                                             </strong>
                                             <p className="text-muted">
                                                 {talento.cpf}
@@ -89,8 +88,7 @@ export default function detalhesTalento() {
                                             <hr />
 
                                             <strong>
-                                                <i className="fas fa-calendar-alt "></i>
-                                                Data de Nascimento
+                                                <i className="fas fa-calendar-alt "></i> Data de Nascimento
                                             </strong>
                                             <p className="text-muted">
                                                 {talento.dataNasc}
@@ -108,8 +106,7 @@ export default function detalhesTalento() {
                                         </div>
                                         <div className="card-body">
                                             <strong>
-                                                <i className="fas fa-mobile "></i>
-                                                Telefone
+                                                <i className="fas fa-mobile "></i> Telefone
                                             </strong>
                                             <p className="text-muted">
                                                 {talento.telefone}
@@ -118,8 +115,7 @@ export default function detalhesTalento() {
                                             <hr />
 
                                             <strong>
-                                                <i className="fas fa-envelope "></i>
-                                                E-mail
+                                                <i className="fas fa-envelope "></i> E-mail
                                             </strong>
                                             <p
                                                 className="text-muted"
@@ -138,7 +134,7 @@ export default function detalhesTalento() {
                                                 Formação
                                             </h4>
                                         </div>
-                                        <div className="card-body fa fa-graduation-cap">
+                                        <div className="card-body">
                                             <p className="text-muted">
                                                 {talento.formacao}
                                             </p>
@@ -163,8 +159,7 @@ export default function detalhesTalento() {
                                     <hr />
 
                                     <strong>
-                                        <i className="fas fa-map-marker-alt "></i>
-                                        Cidade
+                                        <i className="fas fa-map-marker-alt "></i> Cidade
                                     </strong>
                                     <p className="text-muted" id="email">
                                         {talento.cidade}
@@ -185,6 +180,5 @@ export default function detalhesTalento() {
                 </div>
             </div>
         </main>
-        //teste1
-    );
+    )
 }
