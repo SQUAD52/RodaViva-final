@@ -1,0 +1,4 @@
+IdEmpresa,Nome,Cnpj,Email,Telefone,Cep,Endereco,Bairro,Lote,Cidade,Estado,Vagas
+1,Renner,12345678900014,renner@gmail.com,6198547521,72887496,Quadra 31A,São Mateus,13,Cidade Ocidental,GO,Administrador, Programador
+2,McDonalds,12345678900013,funcionario@gmail.com,61982128895,72887496,Quadra 31A,São Mateus,10,Cidade Ocidental,GO,Operador de Caixa, Produção
+3,Barbearia CorteAqui,15646546465645,barbershop@gmail.com,61982128895,72887-496,Quadra 31A,São Mateus,13,Cidade Ocidental,GO,atendente

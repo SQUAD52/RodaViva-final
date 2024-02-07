@@ -9,6 +9,7 @@ namespace apirodaviva.Models
         [Key]
         public int IdCandidato { get; set; }
 
+        [StringLength(255)]
         [Required(ErrorMessage = "Campo Cargo é obrigatório")]
         public string Cargo { get; set; }
 
